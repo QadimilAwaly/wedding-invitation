@@ -5,10 +5,10 @@ const WEDDING_CONFIG = {
     // Couple Information
     couple: {
         bride: {
-            name: "Sarah Anderson",
+            name: "Yulia Sari",
             photo: "https://via.placeholder.com/400x400/ff69b4/ffffff?text=Sarah",
-            father: "Bapak John Anderson",
-            mother: "Ibu Mary Anderson"
+            father: "Ahmad Budiman",
+            mother: "Mariam Bellayanti"
         },
         groom: {
             name: "Michael Johnson", 
