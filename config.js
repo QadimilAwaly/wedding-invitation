@@ -11,10 +11,10 @@ const WEDDING_CONFIG = {
             mother: "Mariam Bellayanti"
         },
         groom: {
-            name: "Michael Johnson", 
-            photo: "https://via.placeholder.com/400x400/4169e1/ffffff?text=Michael",
-            father: "Bapak Robert Johnson",
-            mother: "Ibu Linda Johnson"
+            name: "Arif Sulaiman", 
+            photo: "https://lh7-rt.googleusercontent.com/docsz/AD_4nXf2VdxL_FIN9XLcnotVQK-7HNxazbvGkVPL5XD-NFYot1gJqiWgPUNjMRvithDQCkP_AS6QPe7eKpd73WqzhyO37BEhJpnqR350n7xjE922skbPBZhWpRUn2V8Z-fjfnrxiuS8sbA?key=fdGJFh6tNqkuqPwML1E38g",
+            father: "Bapak Muhammad Ali",
+            mother: "Ibu Syifa Fauziah"
         }
     },
 
@@ -22,21 +22,21 @@ const WEDDING_CONFIG = {
     events: {
         akad: {
             title: "Akad Nikah",
-            date: "Sabtu, 15 Juni 2024",
+            date: "Sabtu, 15 Juni 2026",
             time: "09:00 - 11:00 WIB",
-            location: "Masjid Al-Hikmah, Jakarta"
+            location: "Rumah Mempelai Wanita, Martapura, Kalimantan Selatan"
         },
         resepsi: {
             title: "Resepsi",
-            date: "Sabtu, 15 Juni 2024", 
+            date: "Sabtu, 15 Juni 2026", 
             time: "11:00 - 14:00 WIB",
-            location: "Ballroom Hotel Grand Indonesia, Jakarta"
+            location: "Rumah Mempelai Wanita, Martapura, Kalimantan Selatan"
         }
     },
 
     // Wedding Date & Time (for countdown)
     weddingDateTime: {
-        year: 2024,
+        year: 2026,
         month: 5, // JavaScript months are 0-based (0 = January, 5 = June)
         day: 15,
         hour: 9,
@@ -46,10 +46,10 @@ const WEDDING_CONFIG = {
 
     // Location
     venue: {
-        name: "Ballroom Hotel Grand Indonesia",
-        address: "Jl. M.H. Thamrin No. 1, Jakarta Pusat, DKI Jakarta 10310",
-        googleMapsUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.521260322283!2d106.8195613507864!3d-6.194741395493371!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f5390917b759%3A0x6b45e67356080477!2sHotel%20Grand%20Indonesia!5e0!3m2!1sen!2sid!4v1234567890",
-        directionsUrl: "Hotel Grand Indonesia, Jakarta"
+        name: "Rumah Mempelai Wanita",
+        address: "JL. Batuahar No. 123, Martapura, Kalimantan Selatan",
+        googleMapsUrl: "https://maps.app.goo.gl/BHarxJ2Gwq1hJ7rcA",
+        directionsUrl: "https://maps.app.goo.gl/BHarxJ2Gwq1hJ7rcA"
     },
 
     // Theme Colors
@@ -84,8 +84,8 @@ const WEDDING_CONFIG = {
 
     // Social Media
     social: {
-        instagram: "#SarahMichael2024",
-        hashtag: "#SarahMichaelWedding"
+        instagram: "#QadimilAwalyWedding",
+        hashtag: "#YuliaArifWedding"
     },
 
     // Messages
@@ -102,10 +102,12 @@ const WEDDING_CONFIG = {
     gallery: {
         enabled: true,
         images: [
-            "https://via.placeholder.com/600x400/d4a574/ffffff?text=Photo+1",
-            "https://via.placeholder.com/600x400/2c3e50/ffffff?text=Photo+2", 
-            "https://via.placeholder.com/600x400/e74c3c/ffffff?text=Photo+3",
-            "https://via.placeholder.com/600x400/34495e/ffffff?text=Photo+4"
+            "https://i.pinimg.com/236x/63/9b/07/639b07f4d7aad25f6797f797cfd88898.jpg?text=Photo+1",
+            "https://weddingsutra.com/wp-content/miniature_prewedding_pic6.jpg?text=Photo+2", 
+            "https://miro.medium.com/v2/resize:fit:1400/1*oKzDw-4G5GpW7mMwBV0-cA.jpeg?text=Photo+3",
+            "https://i.pinimg.com/736x/8a/62/14/8a6214d2e951f5a11a62515a29110a39.jpg?text=Photo+4",
+            "https://i.pinimg.com/236x/71/7c/96/717c960bd62590bb063a4a68909dc0c9.jpg?text=Photo+5",
+            "https://cdnpro.eraspace.com/media/.renditions/wysiwyg/artikel/Tahun_2025/September/PromptGeminiAIPolaroid-1.jpg?text=Photo+6"
         ]
     },
 

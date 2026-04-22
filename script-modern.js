@@ -88,6 +88,9 @@ function loadContentFromConfig() {
     // Location section
     updateLocationContent();
     
+    // Gallery section
+    updateGalleryContent();
+    
     // RSVP section
     updateRSVPContent();
     
@@ -177,9 +180,29 @@ function updateLocationContent() {
     const venueName = document.getElementById('venue-name');
     const venueAddress = document.getElementById('venue-address');
     
-    if (venueMap) venueMap.src = CONFIG.venue.googleMapsUrl;
+    // Make the map container clickable to open Google Maps
+    if (venueMap) {
+        venueMap.style.cursor = 'pointer';
+        venueMap.addEventListener('click', () => {
+            window.open(CONFIG.venue.googleMapsUrl, '_blank');
+        });
+    }
     if (venueName) venueName.textContent = CONFIG.venue.name;
     if (venueAddress) venueAddress.textContent = CONFIG.venue.address;
+}
+
+// Update gallery content
+function updateGalleryContent() {
+    if (!CONFIG.gallery || !CONFIG.gallery.images) return;
+    
+    const galleryImages = document.querySelectorAll('.gallery-image');
+    
+    galleryImages.forEach((img, index) => {
+        if (CONFIG.gallery.images[index]) {
+            img.src = CONFIG.gallery.images[index];
+            img.alt = `Gallery ${index + 1}`;
+        }
+    });
 }
 
 // Update RSVP content
@@ -602,8 +625,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const directionsBtn = document.getElementById('directions-btn');
     if (directionsBtn && CONFIG.venue) {
         directionsBtn.addEventListener('click', () => {
-            const url = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(CONFIG.venue.directionsUrl)}`;
-            window.open(url, '_blank');
+            window.open(CONFIG.venue.directionsUrl, '_blank');
         });
     }
     
