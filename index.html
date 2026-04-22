@@ -17,11 +17,15 @@
     <link rel="stylesheet" href="style-modern.css">
 </head>
 <body>
+    <!-- Audio Player -->
+    <audio id="wedding-music" style="display: none;" preload="auto" playsinline></audio>
+
     <!-- Loading Screen -->
     <div id="loading-screen" class="loading-screen">
         <div class="loading-content">
             <div class="loading-heart"></div>
             <p>Mempersiapkan undangan...</p>
+            <p class="loading-instruction">Klik untuk masuk</p>
         </div>
     </div>
 
@@ -436,7 +440,7 @@
             </div>
             <div class="footer-couple">
                 <h3 id="footer-couple-names">Sarah & Michael</h3>
-                <p class="footer-date">15 Juni 2024</p>
+                <p class="footer-date" id="footer-date">15 Juni 2024</p>
             </div>
             <div class="footer-social">
                 <div class="social-info">
@@ -457,7 +461,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2024 Sarah & Michael Wedding. Dibuat dengan <i class="fas fa-heart"></i> untuk hari spesial kami.</p>
+            <p id="footer-copyright">&copy; 2026 Sarah & Michael Wedding. Dibuat dengan <i class="fas fa-heart"></i> untuk hari spesial kami.</p>
         </div>
     </footer>
 

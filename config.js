@@ -95,7 +95,61 @@ const WEDDING_CONFIG = {
         countdownTitle: "Hitung Mundur Menuju Hari Bahagia",
         rsvpTitle: "RSVP - Konfirmasi Kehadiran",
         rsvpSubtitle: "Mohon konfirmasi kehadiran Anda",
-        footer: "Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu kepada kedua mempelai"
+        footer: "Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu kepada kedua mempelai",
+        
+        // Section Subtitles
+        coupleSubtitle: "Yang bersatu dalam cinta dan takwa",
+        eventsSubtitle: "Turut berbahagia menyaksikan momen suci ini",
+        gallerySubtitle: "Momen-momen indah kami",
+        locationSubtitle: "Temukan kami di sini",
+        
+        // UI Text
+        scrollText: "Scroll untuk melihat undangan",
+        socialText: "Ikuti momen bahagia kami",
+        coupleLabel: "Putri", // or "Putra" for groom
+        fatherLabel: "Bapak",
+        motherLabel: "Ibu",
+        andText: "dan",
+        loadingText: "Mempersiapkan undangan...",
+        mapClickText: "Klik untuk membuka peta"
+    },
+    
+    // Buttons & Form Labels
+    buttons: {
+        directionsText: "Petunjuk Arah",
+        saveLocationText: "Simpan Lokasi",
+        submitRsvpText: "Kirim RSVP"
+    },
+    
+    // Form Labels
+    formLabels: {
+        fullName: "Nama Lengkap *",
+        phone: "Nomor Telepon *",
+        attendance: "Kehadiran *",
+        guestCount: "Jumlah Tamu *",
+        message: "Pesan Ucapan (Opsional)",
+        fullNamePlaceholder: "Masukkan nama lengkap Anda",
+        phonePlaceholder: "08xx-xxxx-xxxx",
+        messagePlaceholder: "Tulis pesan atau ucapan untuk kami...",
+        selectAttendance: "-- Pilih Kehadiran --",
+        attendanceYes: "Hadir",
+        attendanceNo: "Tidak Hadir"
+    },
+    
+    // Contact Info Labels
+    contactLabels: {
+        callUs: "Hubungi Kami",
+        email: "Email",
+        whatsapp: "WhatsApp"
+    },
+    
+    // Footer Information
+    footer: {
+        date: "15 Juni 2026",
+        coupleNames: "Yulia & Arif",
+        copyrightText: "Dibuat dengan",
+        copyrightSuffix: "untuk hari spesial kami.",
+        year: 2026
     },
 
     // Gallery Images (optional)
@@ -114,9 +168,10 @@ const WEDDING_CONFIG = {
     // Music (optional)
     music: {
         enabled: true,
-        file: "music/wedding-song.mp3",
-        autoplay: false,
-        loop: true
+        file: "wedding-song.mp3",
+        autoplay: true,
+        loop: true,
+        volume: 0.5
     },
 
     // Features

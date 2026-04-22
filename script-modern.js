@@ -35,15 +35,9 @@ function getDefaultConfig() {
 
 // Initialize the application
 function initializeApp() {
-    // Hide loading screen
-    setTimeout(() => {
-        const loadingScreen = document.getElementById('loading-screen');
-        if (loadingScreen) {
-            loadingScreen.classList.add('hidden');
-            setTimeout(() => loadingScreen.remove(), 500);
-        }
-    }, 1500);
-
+    // Set up loading screen with click to start
+    setupLoadingScreen();
+    
     // Load content from configuration
     loadContentFromConfig();
     
@@ -63,6 +57,58 @@ function initializeApp() {
     applyThemeColors();
     
     console.log('Wedding invitation initialized');
+}
+
+// Set up loading screen with click interaction
+function setupLoadingScreen() {
+    const loadingScreen = document.getElementById('loading-screen');
+    if (!loadingScreen) return;
+    
+    // Make loading screen clickable
+    loadingScreen.style.cursor = 'pointer';
+    loadingScreen.addEventListener('click', () => {
+        // Start music when user clicks (counts as user interaction)
+        startMusicOnInteraction();
+        
+        // Hide loading screen
+        loadingScreen.classList.add('hidden');
+        setTimeout(() => loadingScreen.remove(), 500);
+    });
+    
+    // Also allow keyboard interaction
+    document.addEventListener('keydown', (e) => {
+        if (loadingScreen && !loadingScreen.classList.contains('hidden')) {
+            startMusicOnInteraction();
+            loadingScreen.classList.add('hidden');
+            setTimeout(() => loadingScreen.remove(), 500);
+        }
+    }, { once: true });
+}
+
+// Start music when user interacts
+function startMusicOnInteraction() {
+    if (!CONFIG.music || !CONFIG.music.enabled) return;
+    
+    const audioElement = document.getElementById('wedding-music');
+    const musicToggle = document.getElementById('music-toggle');
+    
+    if (!audioElement || !musicToggle) return;
+    
+    // Set up audio if not already done
+    if (!audioElement.src) {
+        audioElement.src = CONFIG.music.file;
+        audioElement.loop = CONFIG.music.loop || false;
+        audioElement.volume = CONFIG.music.volume || 0.5;
+    }
+    
+    // Play music with sound (user interaction allows this)
+    audioElement.play().then(() => {
+        musicToggle.innerHTML = '<i class="fas fa-pause"></i>';
+        musicToggle.style.background = 'var(--accent-color)';
+        console.log('Music started after user interaction');
+    }).catch(err => {
+        console.error('Error playing music:', err);
+    });
 }
 
 // Load content from configuration
@@ -224,11 +270,23 @@ function updateRSVPContent() {
 function updateFooterContent() {
     const footerMessage = document.getElementById('footer-message');
     const footerCoupleNames = document.getElementById('footer-couple-names');
+    const footerDate = document.getElementById('footer-date');
+    const footerCopyright = document.getElementById('footer-copyright');
     const socialHashtag = document.getElementById('social-hashtag');
     
     if (footerMessage && CONFIG.messages) footerMessage.textContent = CONFIG.messages.footer;
     if (footerCoupleNames && CONFIG.couple) {
         footerCoupleNames.textContent = `${CONFIG.couple.bride.name.split(' ')[0]} & ${CONFIG.couple.groom.name.split(' ')[0]}`;
+    }
+    if (footerDate && CONFIG.footer) {
+        footerDate.textContent = CONFIG.footer.date;
+    }
+    if (footerCopyright && CONFIG.footer && CONFIG.couple) {
+        const coupleNames = `${CONFIG.couple.bride.name.split(' ')[0]} & ${CONFIG.couple.groom.name.split(' ')[0]}`;
+        const year = CONFIG.footer.year;
+        const copyrightText = CONFIG.footer.copyrightText;
+        const copyrightSuffix = CONFIG.footer.copyrightSuffix;
+        footerCopyright.innerHTML = `&copy; ${year} ${coupleNames} Wedding. ${copyrightText} <i class="fas fa-heart"></i> ${copyrightSuffix}`;
     }
     if (socialHashtag && CONFIG.social) socialHashtag.textContent = CONFIG.social.hashtag;
 }
@@ -536,26 +594,41 @@ function initializeScrollEffects() {
 
 // Initialize music player
 function initializeMusic() {
-    const musicToggle = document.getElementById('music-toggle');
-    let isPlaying = false;
+    if (!CONFIG.music || !CONFIG.music.enabled) return;
     
-    if (musicToggle) {
-        musicToggle.addEventListener('click', () => {
-            isPlaying = !isPlaying;
-            
-            if (isPlaying) {
-                musicToggle.innerHTML = '<i class="fas fa-pause"></i>';
-                musicToggle.style.background = 'var(--accent-color)';
-                // Start playing music (implement actual music playback)
-                console.log('Music playing');
-            } else {
-                musicToggle.innerHTML = '<i class="fas fa-music"></i>';
-                musicToggle.style.background = 'var(--primary-color)';
-                // Pause music
-                console.log('Music paused');
-            }
-        });
-    }
+    const musicToggle = document.getElementById('music-toggle');
+    const audioElement = document.getElementById('wedding-music');
+    
+    if (!musicToggle || !audioElement) return;
+    
+    // Set up audio element (but don't autoplay yet)
+    audioElement.src = CONFIG.music.file;
+    audioElement.loop = CONFIG.music.loop || false;
+    audioElement.volume = CONFIG.music.volume || 0.5;
+    
+    // Toggle music on button click
+    musicToggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (audioElement.paused) {
+            audioElement.play().catch(err => {
+                console.error('Error playing audio:', err);
+            });
+            musicToggle.innerHTML = '<i class="fas fa-pause"></i>';
+            musicToggle.style.background = 'var(--accent-color)';
+            console.log('Music playing');
+        } else {
+            audioElement.pause();
+            musicToggle.innerHTML = '<i class="fas fa-music"></i>';
+            musicToggle.style.background = 'var(--primary-color)';
+            console.log('Music paused');
+        }
+    });
+    
+    // Update button state when audio ends
+    audioElement.addEventListener('ended', () => {
+        musicToggle.innerHTML = '<i class="fas fa-music"></i>';
+        musicToggle.style.background = 'var(--primary-color)';
+    });
 }
 
 // Initialize share functionality
