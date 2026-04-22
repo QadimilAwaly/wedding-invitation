@@ -6,7 +6,7 @@ const WEDDING_CONFIG = {
     couple: {
         bride: {
             name: "Yulia Sari",
-            photo: "https://via.placeholder.com/400x400/ff69b4/ffffff?text=Sarah",
+            photo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsgCmpaVKa_WMfCY2a5fZEPpS9A8_1fhHviw&s",
             father: "Ahmad Budiman",
             mother: "Mariam Bellayanti"
         },
