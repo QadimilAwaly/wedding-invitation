@@ -871,118 +871,6 @@ body {
     box-shadow: var(--shadow-lg);
 }
 
-/* RSVP Section */
-.rsvp-section {
-    padding: 120px 20px;
-    background: var(--white);
-}
-
-.rsvp-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 60px;
-}
-
-.rsvp-form-wrapper {
-    background: var(--background-color);
-    padding: 50px;
-    border-radius: var(--border-radius-large);
-    box-shadow: var(--shadow-lg);
-}
-
-.rsvp-form {
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
-}
-
-.form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-}
-
-.form-group {
-    display: flex;
-    flex-direction: column;
-}
-
-.form-group label {
-    font-weight: 600;
-    color: var(--text-color);
-    margin-bottom: 8px;
-}
-
-.form-group input,
-.form-group select,
-.form-group textarea {
-    padding: 15px;
-    border: 2px solid #e0e0e0;
-    border-radius: var(--border-radius);
-    font-size: 1rem;
-    transition: var(--transition);
-    background: var(--white);
-}
-
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
-    outline: none;
-    border-color: var(--primary-color);
-    box-shadow: 0 0 0 3px rgba(212, 165, 116, 0.1);
-}
-
-.form-group textarea {
-    resize: vertical;
-    min-height: 120px;
-}
-
-.rsvp-info {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.info-card {
-    background: var(--background-color);
-    padding: 30px;
-    border-radius: var(--border-radius);
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    transition: var(--transition);
-}
-
-.info-card:hover {
-    transform: translateY(-3px);
-    box-shadow: var(--shadow-md);
-}
-
-.info-icon {
-    width: 50px;
-    height: 50px;
-    background: var(--primary-color);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--white);
-    font-size: 1.2rem;
-}
-
-.info-content h4 {
-    font-size: 1.1rem;
-    margin-bottom: 5px;
-    color: var(--text-color);
-}
-
-.info-content p {
-    color: var(--text-light);
-    font-size: 0.95rem;
-}
-
 /* Footer */
 .footer {
     background: linear-gradient(135deg, var(--secondary-color) 0%, #34495e 100%);
@@ -1216,9 +1104,6 @@ body {
         grid-template-columns: 1fr;
     }
     
-    .rsvp-container {
-        grid-template-columns: 1fr;
-    }
 }
 
 @media (max-width: 768px) {
@@ -1287,9 +1172,6 @@ body {
         grid-template-columns: 1fr;
     }
     
-    .rsvp-form-wrapper {
-        padding: 30px 20px;
-    }
     
     .fab-container {
         bottom: 20px;

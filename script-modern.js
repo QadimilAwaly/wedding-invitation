@@ -28,7 +28,7 @@ function getDefaultConfig() {
             bride: { name: "Sarah", photo: "", father: "", mother: "" },
             groom: { name: "Michael", photo: "", father: "", mother: "" }
         },
-        weddingDateTime: { year: 2024, month: 5, day: 15, hour: 9, minute: 0, second: 0 },
+        countdown: { targetDate: { year: 2026, month: 7, day: 15, hour: 9, minute: 0, second: 0 } },
         theme: { primary: "#d4a574", secondary: "#2c3e50", accent: "#e74c3c" }
     };
 }
@@ -44,7 +44,6 @@ function initializeApp() {
     // Initialize components
     initializeNavigation();
     initializeCountdown();
-    initializeRSVP();
     initializeGallery();
     initializeLightbox();
     initializeScrollEffects();
@@ -55,6 +54,8 @@ function initializeApp() {
     
     // Apply theme colors
     applyThemeColors();
+    applyThemeFonts();
+    applyFeatures();
     
     console.log('Wedding invitation initialized');
 }
@@ -113,182 +114,195 @@ function startMusicOnInteraction() {
 
 // Load content from configuration
 function loadContentFromConfig() {
-    // Page title
-    const pageTitle = document.getElementById('page-title');
-    if (pageTitle && CONFIG.messages) {
-        pageTitle.textContent = `${CONFIG.couple.bride.name} & ${CONFIG.couple.groom.name} Wedding`;
-    }
+    const setHtmlText = (id, text) => {
+        const el = document.getElementById(id);
+        if (el && text !== undefined && text !== null) el.innerHTML = text;
+    };
 
-    // Hero section
-    updateHeroContent();
-    
-    // Couple section
-    updateCoupleContent();
-    
-    // Events section
-    updateEventsContent();
-    
-    // Quote section
-    updateQuoteContent();
-    
-    // Location section
-    updateLocationContent();
-    
-    // Gallery section
-    updateGalleryContent();
-    
-    // RSVP section
-    updateRSVPContent();
-    
-    // Footer
-    updateFooterContent();
-}
-
-// Update hero content
-function updateHeroContent() {
-    const heroTitle = document.getElementById('hero-title');
-    const heroSubtitle = document.getElementById('hero-subtitle');
-    const heroBrideName = document.getElementById('hero-bride-name');
-    const heroGroomName = document.getElementById('hero-groom-name');
-    
-    if (heroTitle && CONFIG.messages) heroTitle.textContent = CONFIG.messages.invitation || 'Undangan Pernikahan';
-    if (heroSubtitle && CONFIG.messages) heroSubtitle.textContent = CONFIG.messages.header || 'Dengan memohon rahmat dan ridho Allah SWT';
-    if (heroBrideName && CONFIG.couple.bride) heroBrideName.textContent = CONFIG.couple.bride.name.split(' ')[0];
-    if (heroGroomName && CONFIG.couple.groom) heroGroomName.textContent = CONFIG.couple.groom.name.split(' ')[0];
-}
-
-// Update couple content
-function updateCoupleContent() {
-    // Bride
-    const brideName = document.getElementById('bride-name');
-    const bridePhoto = document.getElementById('bride-photo');
-    const brideFather = document.getElementById('bride-father');
-    const brideMother = document.getElementById('bride-mother');
-    
-    if (brideName && CONFIG.couple.bride) brideName.textContent = CONFIG.couple.bride.name;
-    if (bridePhoto && CONFIG.couple.bride) bridePhoto.src = CONFIG.couple.bride.photo;
-    if (brideFather && CONFIG.couple.bride) brideFather.textContent = CONFIG.couple.bride.father;
-    if (brideMother && CONFIG.couple.bride) brideMother.textContent = CONFIG.couple.bride.mother;
-    
-    // Groom
-    const groomName = document.getElementById('groom-name');
-    const groomPhoto = document.getElementById('groom-photo');
-    const groomFather = document.getElementById('groom-father');
-    const groomMother = document.getElementById('groom-mother');
-    
-    if (groomName && CONFIG.couple.groom) groomName.textContent = CONFIG.couple.groom.name;
-    if (groomPhoto && CONFIG.couple.groom) groomPhoto.src = CONFIG.couple.groom.photo;
-    if (groomFather && CONFIG.couple.groom) groomFather.textContent = CONFIG.couple.groom.father;
-    if (groomMother && CONFIG.couple.groom) groomMother.textContent = CONFIG.couple.groom.mother;
-}
-
-// Update events content
-function updateEventsContent() {
-    if (!CONFIG.events) return;
-    
-    // Akad
-    const akadTitle = document.getElementById('akad-title');
-    const akadDate = document.getElementById('akad-date');
-    const akadTime = document.getElementById('akad-time');
-    const akadLocation = document.getElementById('akad-location');
-    
-    if (akadTitle) akadTitle.textContent = CONFIG.events.akad.title;
-    if (akadDate) akadDate.textContent = CONFIG.events.akad.date;
-    if (akadTime) akadTime.textContent = CONFIG.events.akad.time;
-    if (akadLocation) akadLocation.textContent = CONFIG.events.akad.location;
-    
-    // Resepsi
-    const resepsiTitle = document.getElementById('resepsi-title');
-    const resepsiDate = document.getElementById('resepsi-date');
-    const resepsiTime = document.getElementById('resepsi-time');
-    const resepsiLocation = document.getElementById('resepsi-location');
-    
-    if (resepsiTitle) resepsiTitle.textContent = CONFIG.events.resepsi.title;
-    if (resepsiDate) resepsiDate.textContent = CONFIG.events.resepsi.date;
-    if (resepsiTime) resepsiTime.textContent = CONFIG.events.resepsi.time;
-    if (resepsiLocation) resepsiLocation.textContent = CONFIG.events.resepsi.location;
-}
-
-// Update quote content
-function updateQuoteContent() {
-    const weddingQuote = document.getElementById('wedding-quote');
-    const quoteSource = document.getElementById('quote-source');
-    
-    if (weddingQuote && CONFIG.quote) weddingQuote.textContent = CONFIG.quote.text;
-    if (quoteSource && CONFIG.quote) quoteSource.textContent = CONFIG.quote.source;
-}
-
-// Update location content
-function updateLocationContent() {
-    if (!CONFIG.venue) return;
-    
-    const venueMap = document.getElementById('venue-map');
-    const venueName = document.getElementById('venue-name');
-    const venueAddress = document.getElementById('venue-address');
-    
-    // Make the map container clickable to open Google Maps
-    if (venueMap) {
-        venueMap.style.cursor = 'pointer';
-        venueMap.addEventListener('click', () => {
-            window.open(CONFIG.venue.googleMapsUrl, '_blank');
-        });
-    }
-    if (venueName) venueName.textContent = CONFIG.venue.name;
-    if (venueAddress) venueAddress.textContent = CONFIG.venue.address;
-}
-
-// Update gallery content
-function updateGalleryContent() {
-    if (!CONFIG.gallery || !CONFIG.gallery.images) return;
-    
-    const galleryImages = document.querySelectorAll('.gallery-image');
-    
-    galleryImages.forEach((img, index) => {
-        if (CONFIG.gallery.images[index]) {
-            img.src = CONFIG.gallery.images[index];
-            img.alt = `Gallery ${index + 1}`;
+    // 1. PENGATURAN UMUM & SEO
+    if (CONFIG.meta) {
+        const pageTitle = document.getElementById('page-title');
+        if (pageTitle) pageTitle.textContent = CONFIG.meta.title;
+        
+        const updateMeta = (id, content) => {
+            const el = document.getElementById(id);
+            if (el && content) el.setAttribute('content', content);
+        };
+        
+        updateMeta('meta-description', CONFIG.meta.description);
+        updateMeta('meta-keywords', CONFIG.meta.keywords);
+        updateMeta('meta-author', CONFIG.meta.author);
+        
+        updateMeta('og-title', CONFIG.meta.title);
+        updateMeta('og-description', CONFIG.meta.description);
+        updateMeta('og-image', CONFIG.meta.imageUrl);
+        updateMeta('og-url', CONFIG.meta.url);
+        
+        updateMeta('twitter-title', CONFIG.meta.title);
+        updateMeta('twitter-description', CONFIG.meta.description);
+        updateMeta('twitter-image', CONFIG.meta.imageUrl);
+        updateMeta('twitter-url', CONFIG.meta.url);
+        
+        const favicon = document.getElementById('favicon');
+        if (favicon && CONFIG.meta.faviconUrl) {
+            favicon.setAttribute('href', CONFIG.meta.faviconUrl);
         }
-    });
-}
+    }
 
-// Update RSVP content
-function updateRSVPContent() {
-    const rsvpTitle = document.getElementById('rsvp-title');
-    const rsvpSubtitle = document.getElementById('rsvp-subtitle');
-    const contactPhone = document.getElementById('contact-phone');
-    const contactEmail = document.getElementById('contact-email');
-    const contactWhatsapp = document.getElementById('contact-whatsapp');
-    
-    if (rsvpTitle && CONFIG.messages) rsvpTitle.textContent = CONFIG.messages.rsvpTitle || 'RSVP';
-    if (rsvpSubtitle && CONFIG.messages) rsvpSubtitle.textContent = CONFIG.messages.rsvpSubtitle || 'Mohon konfirmasi kehadiran';
-    if (contactPhone && CONFIG.contact) contactPhone.textContent = CONFIG.contact.phone;
-    if (contactEmail && CONFIG.contact) contactEmail.textContent = CONFIG.contact.email;
-    if (contactWhatsapp && CONFIG.contact) contactWhatsapp.textContent = CONFIG.contact.whatsapp;
-}
+    // 2. TAMPILAN LOADING
+    if (CONFIG.loading) {
+        setHtmlText('loading-text', CONFIG.loading.text);
+        setHtmlText('loading-instruction', CONFIG.loading.instruction);
+    }
 
-// Update footer content
-function updateFooterContent() {
-    const footerMessage = document.getElementById('footer-message');
-    const footerCoupleNames = document.getElementById('footer-couple-names');
-    const footerDate = document.getElementById('footer-date');
-    const footerCopyright = document.getElementById('footer-copyright');
-    const socialHashtag = document.getElementById('social-hashtag');
-    
-    if (footerMessage && CONFIG.messages) footerMessage.textContent = CONFIG.messages.footer;
-    if (footerCoupleNames && CONFIG.couple) {
-        footerCoupleNames.textContent = `${CONFIG.couple.bride.name.split(' ')[0]} & ${CONFIG.couple.groom.name.split(' ')[0]}`;
+    // 3. MENU NAVIGASI ATAS
+    if (CONFIG.nav) {
+        setHtmlText('nav-couple-names', CONFIG.nav.logoText);
+        setHtmlText('nav-home', CONFIG.nav.home);
+        setHtmlText('nav-couple', CONFIG.nav.couple);
+        setHtmlText('nav-events', CONFIG.nav.events);
+        setHtmlText('nav-gallery', CONFIG.nav.gallery);
     }
-    if (footerDate && CONFIG.footer) {
-        footerDate.textContent = CONFIG.footer.date;
+
+    // 4. BAGIAN DEPAN (HERO SECTION)
+    if (CONFIG.hero) {
+        setHtmlText('hero-title', CONFIG.hero.title);
+        setHtmlText('hero-subtitle', CONFIG.hero.subtitle);
+        setHtmlText('hero-ampersand', CONFIG.hero.connector);
+        setHtmlText('scroll-text', CONFIG.hero.scrollText);
     }
-    if (footerCopyright && CONFIG.footer && CONFIG.couple) {
-        const coupleNames = `${CONFIG.couple.bride.name.split(' ')[0]} & ${CONFIG.couple.groom.name.split(' ')[0]}`;
-        const year = CONFIG.footer.year;
-        const copyrightText = CONFIG.footer.copyrightText;
-        const copyrightSuffix = CONFIG.footer.copyrightSuffix;
-        footerCopyright.innerHTML = `&copy; ${year} ${coupleNames} Wedding. ${copyrightText} <i class="fas fa-heart"></i> ${copyrightSuffix}`;
+
+    // 5. PROFIL MEMPELAI
+    if (CONFIG.couple) {
+        setHtmlText('couple-section-title', CONFIG.couple.sectionTitle);
+        setHtmlText('couple-subtitle', CONFIG.couple.sectionSubtitle);
+        setHtmlText('bride-and', CONFIG.couple.andText);
+        setHtmlText('groom-and', CONFIG.couple.andText);
+        
+        if (CONFIG.couple.bride) {
+            setHtmlText('hero-bride-name', CONFIG.couple.bride.nickname || CONFIG.couple.bride.name?.split(' ')[0]);
+            setHtmlText('bride-name', CONFIG.couple.bride.name);
+            setHtmlText('bride-title', CONFIG.couple.bride.label);
+            setHtmlText('bride-father', (CONFIG.couple.bride.fatherLabel ? CONFIG.couple.bride.fatherLabel + ' ' : '') + CONFIG.couple.bride.father);
+            setHtmlText('bride-mother', (CONFIG.couple.bride.motherLabel ? CONFIG.couple.bride.motherLabel + ' ' : '') + CONFIG.couple.bride.mother);
+            const bridePhoto = document.getElementById('bride-photo');
+            if (bridePhoto && CONFIG.couple.bride.photo) bridePhoto.src = CONFIG.couple.bride.photo;
+        }
+        
+        if (CONFIG.couple.groom) {
+            setHtmlText('hero-groom-name', CONFIG.couple.groom.nickname || CONFIG.couple.groom.name?.split(' ')[0]);
+            setHtmlText('groom-name', CONFIG.couple.groom.name);
+            setHtmlText('groom-title', CONFIG.couple.groom.label);
+            setHtmlText('groom-father', (CONFIG.couple.groom.fatherLabel ? CONFIG.couple.groom.fatherLabel + ' ' : '') + CONFIG.couple.groom.father);
+            setHtmlText('groom-mother', (CONFIG.couple.groom.motherLabel ? CONFIG.couple.groom.motherLabel + ' ' : '') + CONFIG.couple.groom.mother);
+            const groomPhoto = document.getElementById('groom-photo');
+            if (groomPhoto && CONFIG.couple.groom.photo) groomPhoto.src = CONFIG.couple.groom.photo;
+        }
     }
-    if (socialHashtag && CONFIG.social) socialHashtag.textContent = CONFIG.social.hashtag;
+
+    // 6. KUTIPAN (QUOTE)
+    if (CONFIG.quote) {
+        setHtmlText('wedding-quote', CONFIG.quote.text);
+        setHtmlText('quote-source', CONFIG.quote.source);
+    }
+
+    // 7. JADWAL ACARA (EVENTS)
+    if (CONFIG.events) {
+        setHtmlText('events-section-title', CONFIG.events.sectionTitle);
+        setHtmlText('events-subtitle', CONFIG.events.sectionSubtitle);
+        
+        if (CONFIG.events.akad) {
+            setHtmlText('akad-title', CONFIG.events.akad.title);
+            setHtmlText('akad-date', CONFIG.events.akad.date);
+            setHtmlText('akad-time', CONFIG.events.akad.time);
+            setHtmlText('akad-location', CONFIG.events.akad.location);
+        }
+        if (CONFIG.events.resepsi) {
+            setHtmlText('resepsi-title', CONFIG.events.resepsi.title);
+            setHtmlText('resepsi-date', CONFIG.events.resepsi.date);
+            setHtmlText('resepsi-time', CONFIG.events.resepsi.time);
+            setHtmlText('resepsi-location', CONFIG.events.resepsi.location);
+        }
+    }
+
+    // 8. HITUNG MUNDUR (COUNTDOWN)
+    if (CONFIG.countdown) {
+        setHtmlText('countdown-title', CONFIG.countdown.sectionTitle);
+        if (CONFIG.countdown.labels) {
+            setHtmlText('label-days', CONFIG.countdown.labels.days);
+            setHtmlText('label-hours', CONFIG.countdown.labels.hours);
+            setHtmlText('label-minutes', CONFIG.countdown.labels.minutes);
+            setHtmlText('label-seconds', CONFIG.countdown.labels.seconds);
+        }
+    }
+
+    // 9. GALERI FOTO
+    if (CONFIG.gallery) {
+        setHtmlText('gallery-section-title', CONFIG.gallery.sectionTitle);
+        setHtmlText('gallery-subtitle', CONFIG.gallery.sectionSubtitle);
+        
+        if (CONFIG.gallery.images) {
+            const galleryImages = document.querySelectorAll('.gallery-image');
+            galleryImages.forEach((img, index) => {
+                if (CONFIG.gallery.images[index]) {
+                    img.src = CONFIG.gallery.images[index];
+                    img.alt = `Gallery ${index + 1}`;
+                }
+            });
+        }
+    }
+
+    // 10. LOKASI & PETA
+    if (CONFIG.location) {
+        setHtmlText('location-section-title', CONFIG.location.sectionTitle);
+        setHtmlText('location-subtitle', CONFIG.location.sectionSubtitle);
+        setHtmlText('map-click-text', CONFIG.location.mapClickText);
+        setHtmlText('venue-name', CONFIG.location.venueName);
+        setHtmlText('venue-address', CONFIG.location.venueAddress);
+        
+        const venueMap = document.getElementById('venue-map');
+        if (venueMap) {
+            if (CONFIG.location.mapBackgroundUrl) {
+                venueMap.style.backgroundImage = `url('${CONFIG.location.mapBackgroundUrl}')`;
+            }
+            venueMap.style.cursor = 'pointer';
+            venueMap.addEventListener('click', () => {
+                window.open(CONFIG.location.googleMapsUrl, '_blank');
+            });
+        }
+        
+        if (CONFIG.location.buttons) {
+            setHtmlText('directions-text', CONFIG.location.buttons.directionsText);
+            setHtmlText('save-location-text', CONFIG.location.buttons.saveLocationText);
+        }
+    }
+
+    // 11. FOOTER & MEDIA SOSIAL
+    if (CONFIG.footer) {
+        setHtmlText('footer-message', CONFIG.footer.message);
+        setHtmlText('footer-couple-names', CONFIG.footer.coupleNames);
+        setHtmlText('footer-date', CONFIG.footer.date);
+        setHtmlText('footer-copyright', CONFIG.footer.copyrightHtml);
+        
+        setHtmlText('social-text', CONFIG.footer.socialText);
+        setHtmlText('social-hashtag', CONFIG.footer.socialHashtag);
+        
+        if (CONFIG.footer.socialLinks) {
+            const setupSocialLink = (id, url) => {
+                const el = document.getElementById(id);
+                if (el) {
+                    if (url) {
+                        el.href = url;
+                    } else {
+                        el.style.display = 'none';
+                    }
+                }
+            };
+            setupSocialLink('social-instagram-link', CONFIG.footer.socialLinks.instagram);
+            setupSocialLink('social-facebook-link', CONFIG.footer.socialLinks.facebook);
+            setupSocialLink('social-twitter-link', CONFIG.footer.socialLinks.twitter);
+        }
+    }
 }
 
 // Apply theme colors
@@ -299,6 +313,54 @@ function applyThemeColors() {
     root.style.setProperty('--primary-color', CONFIG.theme.primary);
     root.style.setProperty('--secondary-color', CONFIG.theme.secondary);
     root.style.setProperty('--accent-color', CONFIG.theme.accent);
+}
+
+// Apply theme fonts
+function applyThemeFonts() {
+    if (!CONFIG.fonts) return;
+    
+    const root = document.documentElement;
+    if (CONFIG.fonts.googleFontsUrl) {
+        const link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = CONFIG.fonts.googleFontsUrl;
+        document.head.appendChild(link);
+    }
+    if (CONFIG.fonts.heading) root.style.setProperty('--font-heading', CONFIG.fonts.heading);
+    if (CONFIG.fonts.body) root.style.setProperty('--font-body', CONFIG.fonts.body);
+    if (CONFIG.fonts.script) root.style.setProperty('--font-script', CONFIG.fonts.script);
+}
+
+// Apply feature toggles
+function applyFeatures() {
+    if (!CONFIG.features) return;
+
+    if (CONFIG.features.countdown === false) {
+        const el = document.querySelector('.countdown-section');
+        if (el) el.style.display = 'none';
+    }
+    if (CONFIG.features.gallery === false) {
+        const el = document.querySelector('.gallery-section');
+        if (el) el.style.display = 'none';
+        const nav = document.getElementById('nav-gallery');
+        if (nav && nav.parentElement) nav.parentElement.style.display = 'none';
+    }
+    if (CONFIG.features.music === false) {
+        const el = document.getElementById('music-toggle');
+        if (el) el.style.display = 'none';
+    }
+    if (CONFIG.features.maps === false) {
+        const el = document.querySelector('.location-section');
+        if (el) el.style.display = 'none';
+    }
+    if (CONFIG.features.print === false) {
+        const el = document.getElementById('print-btn');
+        if (el) el.style.display = 'none';
+    }
+    if (CONFIG.features.share === false) {
+        const el = document.getElementById('share-btn');
+        if (el) el.style.display = 'none';
+    }
 }
 
 // Initialize navigation
@@ -337,15 +399,16 @@ function initializeNavigation() {
 
 // Initialize countdown timer
 function initializeCountdown() {
-    if (!CONFIG.weddingDateTime) return;
-    
+    if (!CONFIG.countdown?.targetDate) return;
+
+    const target = CONFIG.countdown.targetDate;
     const weddingDate = new Date(
-        CONFIG.weddingDateTime.year,
-        CONFIG.weddingDateTime.month,
-        CONFIG.weddingDateTime.day,
-        CONFIG.weddingDateTime.hour,
-        CONFIG.weddingDateTime.minute,
-        CONFIG.weddingDateTime.second
+        target.year,
+        target.month - 1, // Convert 1-12 to 0-11
+        target.day,
+        target.hour,
+        target.minute,
+        target.second
     );
     
     function updateCountdown() {
@@ -384,7 +447,7 @@ function initializeCountdown() {
     function showCelebrationMessage() {
         const countdownTitle = document.getElementById('countdown-title');
         if (countdownTitle) {
-            countdownTitle.textContent = 'Hari Bahagia Telah Tiba! ?';
+            countdownTitle.textContent = CONFIG.countdown?.finishedText || 'Hari Bahagia Telah Tiba! 🎉';
         }
         
         // Set all countdown values to 00
@@ -399,76 +462,7 @@ function initializeCountdown() {
     setInterval(updateCountdown, 1000);
 }
 
-// Initialize RSVP form
-function initializeRSVP() {
-    const form = document.getElementById('rsvp-form');
-    if (!form) return;
-    
-    form.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        
-        const formData = new FormData(form);
-        const data = {
-            name: formData.get('name'),
-            phone: formData.get('phone'),
-            attendance: formData.get('attendance'),
-            guests: formData.get('guests'),
-            message: formData.get('message')
-        };
-        
-        // Validate form
-        if (!validateRSVPForm(data)) return;
-        
-        // Show loading state
-        const submitBtn = form.querySelector('.btn-submit');
-        const originalText = submitBtn.innerHTML;
-        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Mengirim...';
-        submitBtn.disabled = true;
-        
-        try {
-            // Simulate API call (replace with actual API endpoint)
-            await simulateRSVPSubmission(data);
-            
-            // Show success message
-            showNotification('RSVP Anda telah diterima. Terima kasih!', 'success');
-            
-            // Reset form
-            form.reset();
-            
-        } catch (error) {
-            showNotification('Terjadi kesalahan. Silakan coba lagi.', 'error');
-        } finally {
-            // Reset button
-            submitBtn.innerHTML = originalText;
-            submitBtn.disabled = false;
-        }
-    });
-}
 
-// Validate RSVP form
-function validateRSVPForm(data) {
-    if (!data.name || !data.phone || !data.attendance || !data.guests) {
-        showNotification('Mohon lengkapi semua field yang wajib diisi', 'error');
-        return false;
-    }
-    
-    if (data.phone.length < 10) {
-        showNotification('Nomor telepon tidak valid', 'error');
-        return false;
-    }
-    
-    return true;
-}
-
-// Simulate RSVP submission
-function simulateRSVPSubmission(data) {
-    return new Promise((resolve) => {
-        setTimeout(() => {
-            console.log('RSVP Data:', data);
-            resolve();
-        }, 1500);
-    });
-}
 
 // Initialize gallery
 function initializeGallery() {
@@ -640,14 +634,14 @@ function initializeShare() {
             try {
                 if (navigator.share) {
                     await navigator.share({
-                        title: 'Undangan Pernikahan',
-                        text: 'Kami mengundang Anda untuk merayakan hari bahagia kami',
+                        title: CONFIG.notifications?.shareTitle || 'Undangan Pernikahan',
+                        text: CONFIG.notifications?.shareText || 'Kami mengundang Anda untuk merayakan hari bahagia kami',
                         url: window.location.href
                     });
                 } else {
                     // Fallback: copy link to clipboard
                     copyToClipboard(window.location.href);
-                    showNotification('Link undangan telah disalin!', 'success');
+                    showNotification(CONFIG.notifications?.linkCopiedText || 'Link undangan telah disalin!', 'success');
                 }
             } catch (error) {
                 console.log('Share cancelled or failed');
@@ -696,18 +690,18 @@ function initializeScrollToTop() {
 // Directions button
 document.addEventListener('DOMContentLoaded', () => {
     const directionsBtn = document.getElementById('directions-btn');
-    if (directionsBtn && CONFIG.venue) {
+    if (directionsBtn && CONFIG.location) {
         directionsBtn.addEventListener('click', () => {
-            window.open(CONFIG.venue.directionsUrl, '_blank');
+            window.open(CONFIG.location.directionsUrl, '_blank');
         });
     }
     
     // Save location button
     const saveLocationBtn = document.getElementById('save-location-btn');
-    if (saveLocationBtn && CONFIG.venue) {
+    if (saveLocationBtn && CONFIG.location) {
         saveLocationBtn.addEventListener('click', () => {
-            copyToClipboard(CONFIG.venue.address);
-            showNotification('Alamat lokasi telah disalin!', 'success');
+            copyToClipboard(CONFIG.location.venueAddress);
+            showNotification(CONFIG.notifications?.addressCopiedText || 'Alamat lokasi telah disalin!', 'success');
         });
     }
 });

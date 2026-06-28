@@ -3,8 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title id="page-title">Wedding Invitation</title>
+    <title id="page-title"></title>
+    <meta id="meta-description" name="description" content="">
+    <meta id="meta-keywords" name="keywords" content="">
+    <meta id="meta-author" name="author" content="">
     
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta id="og-url" property="og:url" content="">
+    <meta id="og-title" property="og:title" content="">
+    <meta id="og-description" property="og:description" content="">
+    <meta id="og-image" property="og:image" content="">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta id="twitter-url" property="twitter:url" content="">
+    <meta id="twitter-title" property="twitter:title" content="">
+    <meta id="twitter-description" property="twitter:description" content="">
+    <meta id="twitter-image" property="twitter:image" content="">
+    
+    <link id="favicon" rel="icon" type="image/png" href="">
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,8 +42,8 @@
     <div id="loading-screen" class="loading-screen">
         <div class="loading-content">
             <div class="loading-heart"></div>
-            <p>Mempersiapkan undangan...</p>
-            <p class="loading-instruction">Klik untuk masuk</p>
+            <p id="loading-text"></p>
+            <p class="loading-instruction" id="loading-instruction"></p>
         </div>
     </div>
 
@@ -34,14 +52,13 @@
         <div class="nav-container">
             <div class="nav-logo">
                 <i class="fas fa-heart"></i>
-                <span id="nav-couple-names">S & M</span>
+                <span id="nav-couple-names"></span>
             </div>
             <ul class="nav-menu">
-                <li><a href="#home" class="nav-link">Beranda</a></li>
-                <li><a href="#couple" class="nav-link">Mempelai</a></li>
-                <li><a href="#events" class="nav-link">Acara</a></li>
-                <li><a href="#gallery" class="nav-link">Galeri</a></li>
-                <li><a href="#rsvp" class="nav-link">RSVP</a></li>
+                <li><a href="#home" class="nav-link" id="nav-home"></a></li>
+                <li><a href="#couple" class="nav-link" id="nav-couple"></a></li>
+                <li><a href="#events" class="nav-link" id="nav-events"></a></li>
+                <li><a href="#gallery" class="nav-link" id="nav-gallery"></a></li>
             </ul>
             <button class="nav-toggle">
                 <span></span>
@@ -61,20 +78,20 @@
             <div class="hero-decorative-element">
                 <i class="fas fa-ornament"></i>
             </div>
-            <h1 class="hero-title" id="hero-title">Undangan Pernikahan</h1>
-            <p class="hero-subtitle" id="hero-subtitle">Dengan memohon rahmat dan ridho Allah SWT</p>
+            <h1 class="hero-title" id="hero-title"></h1>
+            <p class="hero-subtitle" id="hero-subtitle"></p>
             <div class="hero-couple">
                 <div class="hero-bride">
-                    <h2 id="hero-bride-name">Sarah</h2>
+                    <h2 id="hero-bride-name"></h2>
                 </div>
-                <div class="hero-ampersand">&</div>
+                <div class="hero-ampersand" id="hero-ampersand"></div>
                 <div class="hero-groom">
-                    <h2 id="hero-groom-name">Michael</h2>
+                    <h2 id="hero-groom-name"></h2>
                 </div>
             </div>
             <div class="hero-scroll">
                 <i class="fas fa-chevron-down"></i>
-                <p>Scroll untuk melihat undangan</p>
+                <p id="scroll-text"></p>
             </div>
         </div>
     </section>
@@ -85,8 +102,8 @@
             <div class="section-decoration">
                 <i class="fas fa-heart"></i>
             </div>
-            <h2 class="section-title">Mempelai</h2>
-            <p class="section-subtitle">Yang bersatu dalam cinta dan takwa</p>
+            <h2 class="section-title" id="couple-section-title"></h2>
+            <p class="section-subtitle" id="couple-subtitle"></p>
         </div>
         
         <div class="couple-container">
@@ -98,12 +115,12 @@
                     </div>
                 </div>
                 <div class="couple-info">
-                    <h3 id="bride-name">Sarah Anderson</h3>
-                    <p class="couple-title">Putri</p>
+                    <h3 id="bride-name"></h3>
+                    <p class="couple-title" id="bride-title"></p>
                     <div class="parents-info">
-                        <p id="bride-father">Bapak John Anderson</p>
-                        <p>dan</p>
-                        <p id="bride-mother">Ibu Mary Anderson</p>
+                        <p id="bride-father"></p>
+                        <p id="bride-and"></p>
+                        <p id="bride-mother"></p>
                     </div>
                 </div>
             </div>
@@ -122,12 +139,12 @@
                     </div>
                 </div>
                 <div class="couple-info">
-                    <h3 id="groom-name">Michael Johnson</h3>
-                    <p class="couple-title">Putra</p>
+                    <h3 id="groom-name"></h3>
+                    <p class="couple-title" id="groom-title"></p>
                     <div class="parents-info">
-                        <p id="groom-father">Bapak Robert Johnson</p>
-                        <p>dan</p>
-                        <p id="groom-mother">Ibu Linda Johnson</p>
+                        <p id="groom-father"></p>
+                        <p id="groom-and"></p>
+                        <p id="groom-mother"></p>
                     </div>
                 </div>
             </div>
@@ -143,10 +160,8 @@
             <div class="quote-icon">
                 <i class="fas fa-quote-left"></i>
             </div>
-            <blockquote id="wedding-quote">
-                Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu pasangan hidup dari jenismu sendiri supaya kamu merasa tenteram kepadanya. Dan Dia menjadikan di antaramu rasa kasih dan sayang. Sungguh, yang demikian itu benar-benar terdapat tanda-tanda bagi kaum yang berpikir.
-            </blockquote>
-            <cite id="quote-source">(QS. Ar-Rum: 21)</cite>
+            <blockquote id="wedding-quote"></blockquote>
+            <cite id="quote-source"></cite>
         </div>
     </section>
 
@@ -156,8 +171,8 @@
             <div class="section-decoration">
                 <i class="fas fa-calendar"></i>
             </div>
-            <h2 class="section-title">Acara Pernikahan</h2>
-            <p class="section-subtitle">Turut berbahagia menyaksikan momen suci ini</p>
+            <h2 class="section-title" id="events-section-title"></h2>
+            <p class="section-subtitle" id="events-subtitle"></p>
         </div>
         
         <div class="events-timeline">
@@ -170,19 +185,19 @@
                     <div class="event-icon">
                         <i class="fas fa-mosque"></i>
                     </div>
-                    <h3 id="akad-title">Akad Nikah</h3>
+                    <h3 id="akad-title"></h3>
                     <div class="event-details">
                         <div class="event-detail-item">
                             <i class="fas fa-calendar-alt"></i>
-                            <span id="akad-date">Sabtu, 15 Juni 2024</span>
+                            <span id="akad-date"></span>
                         </div>
                         <div class="event-detail-item">
                             <i class="fas fa-clock"></i>
-                            <span id="akad-time">09:00 - 11:00 WIB</span>
+                            <span id="akad-time"></span>
                         </div>
                         <div class="event-detail-item">
                             <i class="fas fa-map-marker-alt"></i>
-                            <span id="akad-location">Masjid Al-Hikmah, Jakarta</span>
+                            <span id="akad-location"></span>
                         </div>
                     </div>
                 </div>
@@ -196,19 +211,19 @@
                     <div class="event-icon">
                         <i class="fas fa-glass-cheers"></i>
                     </div>
-                    <h3 id="resepsi-title">Resepsi</h3>
+                    <h3 id="resepsi-title"></h3>
                     <div class="event-details">
                         <div class="event-detail-item">
                             <i class="fas fa-calendar-alt"></i>
-                            <span id="resepsi-date">Sabtu, 15 Juni 2024</span>
+                            <span id="resepsi-date"></span>
                         </div>
                         <div class="event-detail-item">
                             <i class="fas fa-clock"></i>
-                            <span id="resepsi-time">11:00 - 14:00 WIB</span>
+                            <span id="resepsi-time"></span>
                         </div>
                         <div class="event-detail-item">
                             <i class="fas fa-map-marker-alt"></i>
-                            <span id="resepsi-location">Ballroom Hotel Grand Indonesia, Jakarta</span>
+                            <span id="resepsi-location"></span>
                         </div>
                     </div>
                 </div>
@@ -222,13 +237,13 @@
             <div class="countdown-pattern"></div>
         </div>
         <div class="countdown-content">
-            <h2 class="countdown-title" id="countdown-title">Hitung Mundur Menuju Hari Bahagia</h2>
+            <h2 class="countdown-title" id="countdown-title"></h2>
             <div class="countdown-timer">
                 <div class="countdown-item days-item">
                     <div class="countdown-number-wrapper">
                         <span id="countdown-days" class="countdown-number">00</span>
                     </div>
-                    <p class="countdown-label">Hari</p>
+                    <p class="countdown-label" id="label-days"></p>
                 </div>
                 <div class="countdown-separator">
                     <span>:</span>
@@ -237,7 +252,7 @@
                     <div class="countdown-number-wrapper">
                         <span id="countdown-hours" class="countdown-number">00</span>
                     </div>
-                    <p class="countdown-label">Jam</p>
+                    <p class="countdown-label" id="label-hours"></p>
                 </div>
                 <div class="countdown-separator">
                     <span>:</span>
@@ -246,7 +261,7 @@
                     <div class="countdown-number-wrapper">
                         <span id="countdown-minutes" class="countdown-number">00</span>
                     </div>
-                    <p class="countdown-label">Menit</p>
+                    <p class="countdown-label" id="label-minutes"></p>
                 </div>
                 <div class="countdown-separator">
                     <span>:</span>
@@ -255,7 +270,7 @@
                     <div class="countdown-number-wrapper">
                         <span id="countdown-seconds" class="countdown-number">00</span>
                     </div>
-                    <p class="countdown-label">Detik</p>
+                    <p class="countdown-label" id="label-seconds"></p>
                 </div>
             </div>
         </div>
@@ -267,8 +282,8 @@
             <div class="section-decoration">
                 <i class="fas fa-camera"></i>
             </div>
-            <h2 class="section-title">Galeri</h2>
-            <p class="section-subtitle">Momen-momen indah kami</p>
+            <h2 class="section-title" id="gallery-section-title"></h2>
+            <p class="section-subtitle" id="gallery-subtitle"></p>
         </div>
         
         <div class="gallery-grid">
@@ -317,151 +332,67 @@
             <div class="section-decoration">
                 <i class="fas fa-map-marked-alt"></i>
             </div>
-            <h2 class="section-title">Lokasi Acara</h2>
-            <p class="section-subtitle">Temukan kami di sini</p>
+            <h2 class="section-title" id="location-section-title"></h2>
+            <p class="section-subtitle" id="location-subtitle"></p>
         </div>
         
         <div class="location-container">
             <div class="location-map" id="venue-map" style="background: url('https://maps.googleapis.com/maps/api/staticmap?center=Jakarta&zoom=15&size=600x450&style=feature:all|element:labels|visibility:off&style=feature:water|color:0xb3d9ff&style=feature:land|color:0xf3f3f3&style=feature:road|visibility:off&style=feature:administrative|element:geometry.stroke|color:0xcccccc&key=AIzaSyDummyKey') center/cover; display:flex; align-items:center; justify-content:center; cursor:pointer; position:relative;">
                 <div style="background:rgba(0,0,0,0.5); color:white; padding:20px; border-radius:8px; text-align:center; z-index:10;">
                     <i class="fas fa-map-marker-alt" style="font-size:2em; margin-bottom:10px; display:block;"></i>
-                    <p style="margin:0; font-size:1.1em;">Klik untuk membuka peta</p>
+                    <p style="margin:0; font-size:1.1em;" id="map-click-text"></p>
                 </div>
             </div>
             <div class="location-info">
                 <div class="venue-details">
-                    <h3 id="venue-name">Ballroom Hotel Grand Indonesia</h3>
-                    <p id="venue-address" class="venue-address">
-                        Jl. M.H. Thamrin No. 1, Jakarta Pusat, DKI Jakarta 10310
-                    </p>
+                    <h3 id="venue-name"></h3>
+                    <p id="venue-address" class="venue-address"></p>
                 </div>
                 <div class="location-actions">
                     <button id="directions-btn" class="btn btn-primary">
                         <i class="fas fa-directions"></i>
-                        Petunjuk Arah
+                        <span id="directions-text"></span>
                     </button>
                     <button id="save-location-btn" class="btn btn-secondary">
                         <i class="fas fa-bookmark"></i>
-                        Simpan Lokasi
+                        <span id="save-location-text"></span>
                     </button>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- RSVP Section -->
-    <section id="rsvp" class="rsvp-section">
-        <div class="section-header">
-            <div class="section-decoration">
-                <i class="fas fa-envelope-open-text"></i>
-            </div>
-            <h2 class="section-title" id="rsvp-title">RSVP</h2>
-            <p class="section-subtitle" id="rsvp-subtitle">Mohon konfirmasi kehadiran Anda</p>
-        </div>
-        
-        <div class="rsvp-container">
-            <div class="rsvp-form-wrapper">
-                <form id="rsvp-form" class="rsvp-form">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="guest-name">Nama Lengkap *</label>
-                            <input type="text" id="guest-name" name="name" required placeholder="Masukkan nama lengkap Anda">
-                        </div>
-                        <div class="form-group">
-                            <label for="guest-phone">Nomor Telepon *</label>
-                            <input type="tel" id="guest-phone" name="phone" required placeholder="08xx-xxxx-xxxx">
-                        </div>
-                    </div>
-                    
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="attendance-status">Kehadiran *</label>
-                            <select id="attendance-status" name="attendance" required>
-                                <option value="">-- Pilih Kehadiran --</option>
-                                <option value="hadir">Hadir</option>
-                                <option value="tidak-hadir">Tidak Hadir</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="guest-count">Jumlah Tamu *</label>
-                            <input type="number" id="guest-count" name="guests" min="1" max="5" value="1" required>
-                        </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="guest-message">Pesan Ucapan (Opsional)</label>
-                        <textarea id="guest-message" name="message" rows="4" placeholder="Tulis pesan atau ucapan untuk kami..."></textarea>
-                    </div>
-                    
-                    <button type="submit" class="btn btn-submit">
-                        <i class="fas fa-paper-plane"></i>
-                        Kirim RSVP
-                    </button>
-                </form>
-            </div>
-            
-            <div class="rsvp-info">
-                <div class="info-card">
-                    <div class="info-icon">
-                        <i class="fas fa-phone-alt"></i>
-                    </div>
-                    <div class="info-content">
-                        <h4>Hubungi Kami</h4>
-                        <p id="contact-phone">+62 812-3456-7890</p>
-                    </div>
-                </div>
-                <div class="info-card">
-                    <div class="info-icon">
-                        <i class="fas fa-envelope"></i>
-                    </div>
-                    <div class="info-content">
-                        <h4>Email</h4>
-                        <p id="contact-email">wedding@sarahmichael.com</p>
-                    </div>
-                </div>
-                <div class="info-card">
-                    <div class="info-icon">
-                        <i class="fab fa-whatsapp"></i>
-                    </div>
-                    <div class="info-content">
-                        <h4>WhatsApp</h4>
-                        <p id="contact-whatsapp">+6281234567890</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-message">
-                <p id="footer-message">Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu kepada kedua mempelai</p>
+                <p id="footer-message"></p>
             </div>
             <div class="footer-couple">
-                <h3 id="footer-couple-names">Sarah & Michael</h3>
-                <p class="footer-date" id="footer-date">15 Juni 2024</p>
+                <h3 id="footer-couple-names"></h3>
+                <p class="footer-date" id="footer-date"></p>
             </div>
             <div class="footer-social">
                 <div class="social-info">
-                    <p>Ikuti momen bahagia kami</p>
-                    <p id="social-hashtag">#SarahMichaelWedding</p>
+                    <p id="social-text"></p>
+                    <p id="social-hashtag"></p>
                 </div>
                 <div class="social-buttons">
-                    <a href="#" class="social-btn">
+                    <a href="#" class="social-btn" id="social-instagram-link">
                         <i class="fab fa-instagram"></i>
                     </a>
-                    <a href="#" class="social-btn">
+                    <a href="#" class="social-btn" id="social-facebook-link">
                         <i class="fab fa-facebook"></i>
                     </a>
-                    <a href="#" class="social-btn">
+                    <a href="#" class="social-btn" id="social-twitter-link">
                         <i class="fab fa-twitter"></i>
                     </a>
                 </div>
             </div>
         </div>
         <div class="footer-bottom">
-            <p id="footer-copyright">&copy; 2026 Sarah & Michael Wedding. Dibuat dengan <i class="fas fa-heart"></i> untuk hari spesial kami.</p>
+            <p id="footer-copyright"></p>
         </div>
     </footer>
 
