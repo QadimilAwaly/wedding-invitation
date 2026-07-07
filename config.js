@@ -7,13 +7,13 @@ const WEDDING_CONFIG = {
     // 1. PENGATURAN UMUM & SEO
     // ==========================================
     meta: {
-        title: "Undangan Pernikahan Romeo & Juliet",
+        title: "Undangan Pernikahan Arif dan janah",
         description: "Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir di acara pernikahan kami.",
         keywords: "undangan pernikahan, wedding invitation, romeo juliet",
-        author: "Romeo & Juliet",
-        imageUrl: "https://via.placeholder.com/1200x630.png?text=Romeo+%26+Juliet", // Thumbnail sosmed (Rekomendasi 1200x630)
+        author: "Arif dan Janah",
+        imageUrl: "https://drive.google.com/file/d/1EdNsLUX6-IIC_w98IUpE1_def6PeiF7x/view?usp=drivesdk", // Thumbnail sosmed (Rekomendasi 1200x630)
         faviconUrl: "https://via.placeholder.com/32x32.png?text=R%26J", // Ikon browser (Rekomendasi 32x32)
-        url: "https://domainkamu.com"
+        url: 
     },
 
     theme: {
@@ -53,7 +53,7 @@ const WEDDING_CONFIG = {
     // 2. TAMPILAN LOADING
     // ==========================================
     loading: {
-        text: "Mempersiapkan undangan...",
+        text: "Undangan PernikahanArif dan Janah",
         instruction: "Klik untuk masuk"
     },
 
@@ -61,7 +61,7 @@ const WEDDING_CONFIG = {
     // 3. MENU NAVIGASI ATAS
     // ==========================================
     nav: {
-        logoText: "Y & A",
+        logoText: "A & J",
         home: "Beranda",
         couple: "Mempelai",
         events: "Acara",
@@ -87,25 +87,25 @@ const WEDDING_CONFIG = {
         andText: "dan",
         
         bride: {
-            name: "Yulia Sari Maharani",
-            nickname: "Yuli",
-            label: "Putri",
-            photo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsgCmpaVKa_WMfCY2a5fZEPpS9A8_1fhHviw&s",
+            name: "Arif Rahman.S.T",
+            nickname: "Arif",
+            label: "Putra",
+            photo: "https://drive.google.com/file/d/1QjUeZeaR3U7N9yH5VihoUCl0blggyg9j/view?usp=drivesdk",
             fatherLabel: "Bapak",
-            father: "Ahmad Budiman",
+            father: "Darlan",
             motherLabel: "Ibu",
-            mother: "Mariam Bellayanti"
+            mother: "Fatimah ( alm )"
         },
         
         groom: {
-            name: "Arif Sulaiman Putra",
-            nickname: "Ari",
-            label: "Putra",
-            photo: "https://lh7-rt.googleusercontent.com/docsz/AD_4nXf2VdxL_FIN9XLcnotVQK-7HNxazbvGkVPL5XD-NFYot1gJqiWgPUNjMRvithDQCkP_AS6QPe7eKpd73WqzhyO37BEhJpnqR350n7xjE922skbPBZhWpRUn2V8Z-fjfnrxiuS8sbA?key=fdGJFh6tNqkuqPwML1E38g",
+            name: "Janah",
+            nickname: "Janah",
+            label: "Putri",
+            photo: "https://drive.google.com/file/d/12N3Y7vp2v51QPzcgr8zcJVNQyFWrPfYA/view?usp=drivesdk",
             fatherLabel: "Bapak",
-            father: "Muhammad Ali",
+            father: "Arpawi",
             motherLabel: "Ibu",
-            mother: "Syifa Fauziah"
+            mother: "Hj. Saniah"
         }
     },
 
@@ -126,15 +126,15 @@ const WEDDING_CONFIG = {
         
         akad: {
             title: "Akad Nikah",
-            date: "Sabtu, 15 Juli 2026",
+            date: "Jum`at, 18 September 2026",
             time: "09:00 WITA - Selesai",
-            location: "Rumah Mempelai Wanita, Martapura, Kalimantan Selatan"
+            location: "KUA Babirik, Murung panti hilir, Kec. Babirik, Kab HSU, Kalimantan Selatan"
         },
         resepsi: {
             title: "Resepsi",
-            date: "Sabtu, 15 Agustus 2026", 
+            date: "Minggu, 20 September 2026", 
             time: "08.00 WITA - Selesai",
-            location: "Rumah Mempelai Wanita, Martapura, Kalimantan Selatan"
+            location: "Jl. Alabio Babirik, Kab. Hulu Sungai Utara, Kalimantan Selatan"
         }
     },
 
@@ -146,8 +146,8 @@ const WEDDING_CONFIG = {
         
         targetDate: {
             year: 2026,
-            month: 7, // 1-based (1 = Januari, 7 = Juli)
-            day: 15,
+            month: 9, // 1-based (1 = Januari, 7 = Juli)
+            day: 20,
             hour: 8,
             minute: 0,
             second: 0
@@ -168,12 +168,12 @@ const WEDDING_CONFIG = {
         sectionTitle: "Galeri",
         sectionSubtitle: "Momen-momen indah kami",
         images: [
-            "https://i.pinimg.com/236x/63/9b/07/639b07f4d7aad25f6797f797cfd88898.jpg?text=Photo+1",
-            "https://weddingsutra.com/wp-content/miniature_prewedding_pic6.jpg?text=Photo+2", 
-            "https://miro.medium.com/v2/resize:fit:1400/1*oKzDw-4G5GpW7mMwBV0-cA.jpeg?text=Photo+3",
-            "https://i.pinimg.com/736x/8a/62/14/8a6214d2e951f5a11a62515a29110a39.jpg?text=Photo+4",
-            "https://i.pinimg.com/236x/71/7c/96/717c960bd62590bb063a4a68909dc0c9.jpg?text=Photo+5",
-            "https://cdnpro.eraspace.com/media/.renditions/wysiwyg/artikel/Tahun_2025/September/PromptGeminiAIPolaroid-1.jpg?text=Photo+6"
+            "https://drive.google.com/file/d/15MsVjTWkDxthderhIdy-Xaj8xXbEBIcf/view?usp=drivesdk",
+            "https://drive.google.com/file/d/1w7s3_1jlcCyBst3f2PdmsQIOA4VCJqzZ/view?usp=drivesdk", 
+            "https://drive.google.com/file/d/1x9i4Jq0IYmIBYgJ6596M2PAPt7-We8R2/view?usp=drivesdk",
+            "https://drive.google.com/file/d/1r5tlO1P-wVQPduIWOFweZPvvXa-yM_Fl/view?usp=drivesdk",
+            "https://drive.google.com/file/d/1bU5F-mp90kPwe0CcFwvZL-nfGUyzWEtR/view?usp=drivesdk",
+            "https://drive.google.com/file/d/18YxCmioOr67L_xhLSZQxRb4hSMWqSwcK/view?usp=drivesdk"
         ]
     },
 
@@ -186,10 +186,10 @@ const WEDDING_CONFIG = {
         mapClickText: "Klik untuk membuka peta",
         
         venueName: "Rumah Mempelai Wanita",
-        venueAddress: "JL. Batuahar No. 123, Martapura, Kalimantan Selatan",
-        googleMapsUrl: "https://maps.app.goo.gl/BHarxJ2Gwq1hJ7rcA",
-        directionsUrl: "https://maps.app.goo.gl/BHarxJ2Gwq1hJ7rcA",
-        mapBackgroundUrl: "https://maps.googleapis.com/maps/api/staticmap?center=Jakarta&zoom=15&size=600x450&style=feature:all|element:labels|visibility:off&style=feature:water|color:0xb3d9ff&style=feature:land|color:0xf3f3f3&style=feature:road|visibility:off&style=feature:administrative|element:geometry.stroke|color:0xcccccc&key=AIzaSyDummyKey",
+        venueAddress: "Jl. Alabio Babirik, Kab. Hulu Sungai Utara, Kalimantan Selatan",
+        googleMapsUrl: "https://maps.app.goo.gl/pLyvFzNyXkvzpfmH7?g_st=aw",
+        directionsUrl: "https://maps.app.goo.gl/pLyvFzNyXkvzpfmH7?g_st=aw",
+        mapBackgroundUrl: "",
         
         buttons: {
             directionsText: "Petunjuk Arah",
@@ -202,12 +202,12 @@ const WEDDING_CONFIG = {
     // ==========================================
     footer: {
         message: "Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu kepada kedua mempelai",
-        date: "15 Juli 2026",
-        coupleNames: "Arif & Yulia",
-        copyrightHtml: "&copy; 2026 Arif & Yulia Wedding. Dibuat dengan <i class=\"fas fa-heart\"></i> untuk hari spesial kami.",
+        date: "20 September 2026",
+        coupleNames: "Arif & Janah",
+        copyrightHtml: "&copy; 2026 Arif & Janah Wedding. Dibuat dengan <i class=\"fas fa-heart\"></i> untuk hari spesial kami.",
         
         socialText: "Ikuti momen bahagia kami",
-        socialHashtag: "#YuliaArifWedding",
+        socialHashtag: "#ArifJeje",
         socialLinks: {
             instagram: "https://instagram.com/",
             facebook: "https://facebook.com/",
