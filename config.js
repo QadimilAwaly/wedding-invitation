@@ -7,13 +7,13 @@ const WEDDING_CONFIG = {
     // 1. PENGATURAN UMUM & SEO
     // ==========================================
     meta: {
-        title: "Undangan Pernikahan Arif dan janah",
+        title: "Undangan Pernikahan Arif dan Jannah",
         description: "Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir di acara pernikahan kami.",
         keywords: "undangan pernikahan, wedding invitation, romeo juliet",
-        author: "Arif dan Janah",
+        author: "Arif dan Jannah",
         imageUrl: "https://drive.google.com/file/d/1EdNsLUX6-IIC_w98IUpE1_def6PeiF7x/view", // Thumbnail sosmed (Rekomendasi 1200x630)
         faviconUrl: "https://via.placeholder.com/32x32.png?text=R%26J", // Ikon browser (Rekomendasi 32x32)
-        url: ""
+        url: "https://qadimilawaly.github.io/wedding-invitation/"
     },
 
     theme: {
@@ -53,7 +53,7 @@ const WEDDING_CONFIG = {
     // 2. TAMPILAN LOADING
     // ==========================================
     loading: {
-        text: "Undangan Pernikahan Arif dan Janah",
+        text: "Undangan Pernikahan Arif dan Jannah",
         instruction: "Klik untuk masuk"
     },
 
@@ -203,8 +203,8 @@ const WEDDING_CONFIG = {
     footer: {
         message: "Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu kepada kedua mempelai",
         date: "20 September 2026",
-        coupleNames: "Arif & Janah",
-        copyrightHtml: "&copy; 2026 Arif & Janah Wedding. Dibuat dengan <i class=\"fas fa-heart\"></i> untuk hari spesial kami.",
+        coupleNames: "Arif & Jannah",
+        copyrightHtml: "&copy; 2026 Arif & Jannah Wedding. Dibuat dengan <i class=\"fas fa-heart\"></i> untuk hari spesial kami.",
         
         socialText: "Ikuti momen bahagia kami",
         socialHashtag: "#ArifJeje",
