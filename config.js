@@ -87,7 +87,7 @@ const WEDDING_CONFIG = {
         andText: "dan",
         
         bride: {
-            name: "Arif Rahman.S.T",
+            name: "Arif Rahman, S.T",
             nickname: "Arif",
             label: "Putra",
             photo: "https://drive.google.com/file/d/1QjUeZeaR3U7N9yH5VihoUCl0blggyg9j/view?usp=drivesdk",
@@ -98,7 +98,7 @@ const WEDDING_CONFIG = {
         },
         
         groom: {
-            name: "Jannah",
+            name: "Hj. Jannah",
             nickname: "Jannah",
             label: "Putri",
             photo: "https://drive.google.com/file/d/12N3Y7vp2v51QPzcgr8zcJVNQyFWrPfYA/view?usp=drivesdk",
