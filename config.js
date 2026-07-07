@@ -11,7 +11,7 @@ const WEDDING_CONFIG = {
         description: "Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir di acara pernikahan kami.",
         keywords: "undangan pernikahan, wedding invitation, romeo juliet",
         author: "Arif dan Janah",
-        imageUrl: "https://drive.google.com/file/d/1EdNsLUX6-IIC_w98IUpE1_def6PeiF7x/view?usp=drivesdk", // Thumbnail sosmed (Rekomendasi 1200x630)
+        imageUrl: "https://drive.google.com/file/d/1EdNsLUX6-IIC_w98IUpE1_def6PeiF7x/view", // Thumbnail sosmed (Rekomendasi 1200x630)
         faviconUrl: "https://via.placeholder.com/32x32.png?text=R%26J", // Ikon browser (Rekomendasi 32x32)
         url: ""
     },
@@ -98,12 +98,12 @@ const WEDDING_CONFIG = {
         },
         
         groom: {
-            name: "Janah",
-            nickname: "Janah",
+            name: "Jannah",
+            nickname: "Jannah",
             label: "Putri",
             photo: "https://drive.google.com/file/d/12N3Y7vp2v51QPzcgr8zcJVNQyFWrPfYA/view?usp=drivesdk",
             fatherLabel: "Bapak",
-            father: "Arpawi",
+            father: "H. Arpawi",
             motherLabel: "Ibu",
             mother: "Hj. Saniah"
         }
@@ -171,7 +171,7 @@ const WEDDING_CONFIG = {
             "https://drive.google.com/file/d/15MsVjTWkDxthderhIdy-Xaj8xXbEBIcf/view?usp=drivesdk",
             "https://drive.google.com/file/d/1w7s3_1jlcCyBst3f2PdmsQIOA4VCJqzZ/view?usp=drivesdk", 
             "https://drive.google.com/file/d/1x9i4Jq0IYmIBYgJ6596M2PAPt7-We8R2/view?usp=drivesdk",
-            "https://drive.google.com/file/d/1r5tlO1P-wVQPduIWOFweZPvvXa-yM_Fl/view?usp=drivesdk",
+            "https://drive.google.com/file/d/1fWK6Y7j8apejUsBT6sFv6aEvLnZjnZzL/view?usp=drivesdk",
             "https://drive.google.com/file/d/1bU5F-mp90kPwe0CcFwvZL-nfGUyzWEtR/view?usp=drivesdk",
             "https://drive.google.com/file/d/18YxCmioOr67L_xhLSZQxRb4hSMWqSwcK/view?usp=drivesdk"
         ]
