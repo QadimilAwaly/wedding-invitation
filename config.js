@@ -13,7 +13,7 @@ const WEDDING_CONFIG = {
         author: "Arif dan Janah",
         imageUrl: "https://drive.google.com/file/d/1EdNsLUX6-IIC_w98IUpE1_def6PeiF7x/view?usp=drivesdk", // Thumbnail sosmed (Rekomendasi 1200x630)
         faviconUrl: "https://via.placeholder.com/32x32.png?text=R%26J", // Ikon browser (Rekomendasi 32x32)
-        url: 
+        url: ""
     },
 
     theme: {
@@ -53,7 +53,7 @@ const WEDDING_CONFIG = {
     // 2. TAMPILAN LOADING
     // ==========================================
     loading: {
-        text: "Undangan PernikahanArif dan Janah",
+        text: "Undangan Pernikahan Arif dan Janah",
         instruction: "Klik untuk masuk"
     },
 

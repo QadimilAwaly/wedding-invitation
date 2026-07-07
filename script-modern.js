@@ -135,12 +135,12 @@ function loadContentFromConfig() {
         
         updateMeta('og-title', CONFIG.meta.title);
         updateMeta('og-description', CONFIG.meta.description);
-        updateMeta('og-image', CONFIG.meta.imageUrl);
+        updateMeta('og-image', getDirectGoogleDriveUrl(CONFIG.meta.imageUrl));
         updateMeta('og-url', CONFIG.meta.url);
         
         updateMeta('twitter-title', CONFIG.meta.title);
         updateMeta('twitter-description', CONFIG.meta.description);
-        updateMeta('twitter-image', CONFIG.meta.imageUrl);
+        updateMeta('twitter-image', getDirectGoogleDriveUrl(CONFIG.meta.imageUrl));
         updateMeta('twitter-url', CONFIG.meta.url);
         
         const favicon = document.getElementById('favicon');
@@ -186,7 +186,7 @@ function loadContentFromConfig() {
             setHtmlText('bride-father', (CONFIG.couple.bride.fatherLabel ? CONFIG.couple.bride.fatherLabel + ' ' : '') + CONFIG.couple.bride.father);
             setHtmlText('bride-mother', (CONFIG.couple.bride.motherLabel ? CONFIG.couple.bride.motherLabel + ' ' : '') + CONFIG.couple.bride.mother);
             const bridePhoto = document.getElementById('bride-photo');
-            if (bridePhoto && CONFIG.couple.bride.photo) bridePhoto.src = CONFIG.couple.bride.photo;
+            if (bridePhoto && CONFIG.couple.bride.photo) bridePhoto.src = getDirectGoogleDriveUrl(CONFIG.couple.bride.photo);
         }
         
         if (CONFIG.couple.groom) {
@@ -196,7 +196,7 @@ function loadContentFromConfig() {
             setHtmlText('groom-father', (CONFIG.couple.groom.fatherLabel ? CONFIG.couple.groom.fatherLabel + ' ' : '') + CONFIG.couple.groom.father);
             setHtmlText('groom-mother', (CONFIG.couple.groom.motherLabel ? CONFIG.couple.groom.motherLabel + ' ' : '') + CONFIG.couple.groom.mother);
             const groomPhoto = document.getElementById('groom-photo');
-            if (groomPhoto && CONFIG.couple.groom.photo) groomPhoto.src = CONFIG.couple.groom.photo;
+            if (groomPhoto && CONFIG.couple.groom.photo) groomPhoto.src = getDirectGoogleDriveUrl(CONFIG.couple.groom.photo);
         }
     }
 
@@ -245,7 +245,7 @@ function loadContentFromConfig() {
             const galleryImages = document.querySelectorAll('.gallery-image');
             galleryImages.forEach((img, index) => {
                 if (CONFIG.gallery.images[index]) {
-                    img.src = CONFIG.gallery.images[index];
+                    img.src = getDirectGoogleDriveUrl(CONFIG.gallery.images[index]);
                     img.alt = `Gallery ${index + 1}`;
                 }
             });
@@ -263,7 +263,7 @@ function loadContentFromConfig() {
         const venueMap = document.getElementById('venue-map');
         if (venueMap) {
             if (CONFIG.location.mapBackgroundUrl) {
-                venueMap.style.backgroundImage = `url('${CONFIG.location.mapBackgroundUrl}')`;
+                venueMap.style.backgroundImage = `url('${getDirectGoogleDriveUrl(CONFIG.location.mapBackgroundUrl)}')`;
             }
             venueMap.style.cursor = 'pointer';
             venueMap.addEventListener('click', () => {
@@ -804,6 +804,24 @@ function debounce(func, wait) {
         clearTimeout(timeout);
         timeout = setTimeout(later, wait);
     };
+}
+// Convert Google Drive view URL to direct image URL
+function getDirectGoogleDriveUrl(url) {
+    if (!url) return '';
+    if (url.includes('drive.google.com')) {
+        let fileId = '';
+        const matchFile = url.match(/\/file\/d\/([a-zA-Z0-9_-]+)/);
+        const matchId = url.match(/[?&]id=([a-zA-Z0-9_-]+)/);
+        if (matchFile) {
+            fileId = matchFile[1];
+        } else if (matchId) {
+            fileId = matchId[1];
+        }
+        if (fileId) {
+            return `https://drive.google.com/thumbnail?id=${fileId}&sz=w1000`;
+        }
+    }
+    return url;
 }
 
 // Handle window resize
